@@ -30,8 +30,8 @@ Flushbar showSuccessToast(
 
 Flushbar showErrorToast(BuildContext context, String title, String message) {
   return Flushbar(
-    title: (message.matchAsPrefix('info:') != null ? 'Info' : title),
-    message: (message.matchAsPrefix('info:') != null
+    title: ('info:'.matchAsPrefix(message) != null ? 'Info' : title),
+    message: ('info:'.matchAsPrefix(message) != null
         ? message.substring(5)
         : message),
     icon: const Icon(
@@ -41,7 +41,7 @@ Flushbar showErrorToast(BuildContext context, String title, String message) {
     ),
     duration: const Duration(seconds: 4),
     backgroundGradient: LinearGradient(
-      colors: (message.matchAsPrefix('info:') != null
+      colors: ('info:'.matchAsPrefix(message) != null
           ? [Colors.green[600]!, Colors.green[400]!]
           : [Colors.red[600]!, Colors.red[400]!]),
     ),
