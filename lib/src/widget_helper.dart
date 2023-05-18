@@ -30,8 +30,10 @@ Flushbar showSuccessToast(
 
 Flushbar showErrorToast(BuildContext context, String title, String message) {
   return Flushbar(
-    title: title,
-    message: message,
+    title: (message.matchAsPrefix('info:') != null ? 'Info' : title),
+    message: (message.matchAsPrefix('info:') != null
+        ? message.substring(5)
+        : message),
     icon: const Icon(
       Icons.error,
       size: 28.0,
@@ -39,7 +41,9 @@ Flushbar showErrorToast(BuildContext context, String title, String message) {
     ),
     duration: const Duration(seconds: 4),
     backgroundGradient: LinearGradient(
-      colors: [Colors.red[600]!, Colors.red[400]!],
+      colors: (message.matchAsPrefix('info:') != null
+          ? [Colors.green[600]!, Colors.green[400]!]
+          : [Colors.red[600]!, Colors.red[400]!]),
     ),
     onTap: (flushbar) => flushbar.dismiss(),
   )..show(context);
