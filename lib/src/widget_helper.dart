@@ -42,7 +42,11 @@ Flushbar showErrorToast(BuildContext context, String title, String message) {
     duration: const Duration(seconds: 4),
     backgroundGradient: LinearGradient(
       colors: ('info:'.matchAsPrefix(message) != null
-          ? [Colors.green[600]!, Colors.green[400]!]
+          // ? [Colors.green[600]!, Colors.green[400]!]
+          ? [
+              Color.fromARGB(255, 0x00, 0x6e, 0x1c),
+              Colors.white,
+            ]
           : [Colors.red[600]!, Colors.red[400]!]),
     ),
     onTap: (flushbar) => flushbar.dismiss(),
