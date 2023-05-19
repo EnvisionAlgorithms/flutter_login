@@ -45,7 +45,7 @@ Flushbar showErrorToast(BuildContext context, String title, String message) {
           // ? [Colors.green[600]!, Colors.green[400]!]
           ? [
               Color.fromARGB(255, 0x00, 0x6e, 0x1c),
-              Colors.white,
+              Color.fromARGB(255, 0x00, 0x6e, 0x1c),
             ]
           : [Colors.red[600]!, Colors.red[400]!]),
     ),
